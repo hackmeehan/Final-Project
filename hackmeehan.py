@@ -1,0 +1,119 @@
+from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
+
+for i in range(69):
+    treegreen = Color(0x458B00, 1.0)
+    green = Color(0x00ff00, 1.0)
+    blue = Color(0x0000CD, 1.0)
+    black = Color(0x000000, 1.0)
+    slategrey = Color(0x8B8878, 1.0)
+    white = Color(0xffffff, 1.0)
+    brown = Color(0xCD661D, 1.0)
+    khaki = Color(0xF0E68C, 1.0)
+    darkgreen = Color(0x006400, 1.0)
+    watercolor = Color(0x1874CD, 1.0)
+    thinline = LineStyle(2, black)
+    brownline = LineStyle(2, brown)
+    blueline = LineStyle(2, blue)
+    greenline = LineStyle(2, darkgreen)
+    waterline = LineStyle(2, watercolor)
+    treegreenline = LineStyle(2, treegreen)
+    
+    background = RectangleAsset(1200, 1000, thinline, treegreen)
+    Sprite(background, (0, 0))
+    
+    floor1 = RectangleAsset(100, 200, greenline, darkgreen)
+    Sprite(floor1, (80, 200))
+    floor2 = PolygonAsset([(60, 200), (180, 100), (370, 100), (137, 200)], greenline, darkgreen)
+    Sprite(floor2, (90, 100)) 
+    floor3 = RectangleAsset(95, 346, greenline, darkgreen)
+    Sprite(floor3, (300, 100))
+    floorpatch = RectangleAsset(10, 10, greenline, darkgreen)
+    Sprite(floorpatch, (290, 140))
+    floor4 = EllipseAsset(80, 40, greenline, darkgreen)
+    Sprite(floor4, (50, 360))
+    floor5 = PolygonAsset([(0, 0), (150, 0), (240, 53), (164, 85)], greenline, darkgreen)
+    Sprite(floor5, (298, 445)) 
+    floorpatch2 = PolygonAsset([(0, 0), (98, 70), (0, 70)], greenline, darkgreen)
+    Sprite(floorpatch2, (388, 400)) 
+    floor6 = RectangleAsset(250, 68, greenline, darkgreen)
+    Sprite(floor6, (670, 380))
+    floor7 = RectangleAsset(200, 300, greenline, darkgreen)
+    Sprite(floor7, (722, 80))
+    floorpatch3 = PolygonAsset([(0, 0), (90, 0), (90, 70)], treegreenline, treegreen)
+    Sprite(floorpatch3, (840, 70)) 
+    floor8 = PolygonAsset([(0, 80), (200, 0), (200, 70), (0, 145)], greenline, darkgreen)
+    Sprite(floor8, (470, 380)) 
+    
+    startlineblue = RectangleAsset(100, 2, blueline, blue)
+    Sprite(startlineblue, (80, 380))
+    
+    wall1 = RectangleAsset(10, 200, thinline, brown)
+    Sprite(wall1, (80, 200))
+    wall2 = RectangleAsset(10, 200, thinline, brown)
+    Sprite(wall2, (170, 200))
+    wall3 = PolygonAsset([(60, 200), (180, 100), (190, 100), (70, 200)], thinline, brown)
+    Sprite(wall3, (78, 100))
+    wall4 = PolygonAsset([(60, 200), (180, 150), (190, 150), (70, 200)], thinline, brown)
+    Sprite(wall4, (168, 150))
+    wall5 = RectangleAsset(200, 12, thinline, brown)
+    Sprite(wall5, (192, 100))
+    wall6 = RectangleAsset(10, 300, thinline, brown)
+    Sprite(wall6, (390, 100))
+    wall7 = RectangleAsset(10, 300, thinline, brown)
+    Sprite(wall7, (290, 150))
+    wall8 = PolygonAsset([(0, 0), (10, 0), (180, 80), (170, 80)], thinline, brown)
+    Sprite(wall8, (288, 448))
+    wall8 = PolygonAsset([(360, 0), (380, 0), (180, 80), (160, 80)], thinline, brown)
+    Sprite(wall8, (460, 449))
+    wall9 = PolygonAsset([(0, 0), (10, 0), (90, 60), (80, 60)], thinline, brown)
+    Sprite(wall9, (388, 397))
+    wall10 = PolygonAsset([(360, 0), (380, 0), (180, 80), (160, 80)], thinline, brown)
+    Sprite(wall10, (468, 377))
+    wall11 = RectangleAsset(50, 10, thinline, brown)
+    Sprite(wall11, (665, 370))
+    wall12 = RectangleAsset(10, 300, thinline, brown)
+    Sprite(wall12, (715, 80))
+    wall13 = RectangleAsset(250, 6, thinline, brown)
+    Sprite(wall13, (665, 450))
+    wall14 = RectangleAsset(10, 325, thinline, brown)
+    Sprite(wall14, (915, 130))
+    wall15 = PolygonAsset([(0, 0), (10, 0), (90, 60), (80, 60)], thinline, brown)
+    Sprite(wall15, (835, 70))
+    wall16 = RectangleAsset(140, 10, thinline, brown)
+    Sprite(wall16, (715, 70))
+    
+    water = EllipseAsset(70, 120, waterline, watercolor)
+    Sprite(water, (750, 160))
+    
+    hole = CircleAsset(10, thinline, black)
+    Sprite(hole, (800, 105))
+
+class minigolf(App):
+    pass
+
+class ball(Sprite):
+    def __init__(self, color, diameter, x, y):
+        self.c = color
+        self.d = diameter
+        self.vy = 0
+        self.vx = 0
+        ball = CircleAsset(self.d, gridline, self.c)
+        super().__init__(ball, (x, y))
+
+def mouseMove(event):
+    global i 
+    global j
+    i = event.x
+    j = event.y
+def mouseClick(event):
+    global i
+    global j
+    i = event.x
+    j = event.y
+    ball(white, 50, i, j)
+
+
+myapp = minigolf()
+myapp.listenMouseEvent('click', mouseClick)
+myapp.listenMouseEvent('mousemove', mouseMove)
+myapp.run()
