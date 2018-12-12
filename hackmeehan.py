@@ -1,6 +1,6 @@
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
 
-for i in range(69):
+for i in range(1):
     treegreen = Color(0x458B00, 1.0)
     green = Color(0x00ff00, 1.0)
     blue = Color(0x0000CD, 1.0)
