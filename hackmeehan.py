@@ -89,7 +89,9 @@ for i in range(69):
     Sprite(hole, (800, 105))
 
 class minigolf(App):
-    pass
+    global ball
+    if ball:
+        ball.step()
 
 class ball(Sprite):
     def __init__(self, color, diameter, x, y):
@@ -98,8 +100,12 @@ class ball(Sprite):
         self.vy = 0
         self.vx = 0
         ball = CircleAsset(self.d, gridline, self.c)
-        super().__init__(ball, (x, y))
-
+        super().__init__(ball, (100, 400))
+def step():
+    global Player
+    if ball:
+        ball.step()
+        
 def mouseMove(event):
     global i 
     global j
@@ -111,9 +117,10 @@ def mouseClick(event):
     i = event.x
     j = event.y
     ball(white, 50, i, j)
+def
 
 
 myapp = minigolf()
 myapp.listenMouseEvent('click', mouseClick)
 myapp.listenMouseEvent('mousemove', mouseMove)
-myapp.run()
+myapp.run(step)
