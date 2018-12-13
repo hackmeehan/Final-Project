@@ -102,8 +102,8 @@ class ball(Sprite):
         self.d = diameter
         self.vy = 0
         self.vx = 0
-        ball = CircleAsset(self.d, thinline, self.c)
-        super().__init__(ball, (x, y))
+        theball = CircleAsset(self.d, thinline, self.c)
+        super().__init__(theball, (x, y))
     def step(self):
         self.vy += .2
         self.y += self.vy
@@ -120,7 +120,7 @@ def mouseClick(event):
     global golfball
     i = event.x
     j = event.y
-    golfball = ball(white, 50, i, j)
+    golfball = ball(white, 5, i, j)
 
 
 
