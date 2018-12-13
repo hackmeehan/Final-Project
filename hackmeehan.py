@@ -88,10 +88,13 @@ for i in range(1):
     hole = CircleAsset(10, thinline, black)
     Sprite(hole, (800, 105))
 
+golfball = None
+
 class minigolf(App):
+    
     def step(self):
-        if ball:
-            ball.step()
+        if golfball:
+            golfball.step()
 
 class ball(Sprite):
     def __init__(self, color, diameter, x, y):
@@ -99,12 +102,13 @@ class ball(Sprite):
         self.d = diameter
         self.vy = 0
         self.vx = 0
-        ball = CircleAsset(self.d, gridline, self.c)
-        super().__init__(ball, (100, 400))
-    def step():
+        ball = CircleAsset(self.d, thinline, self.c)
+        super().__init__(ball, (x, y))
+    def step(self):
         self.vy += .2
         self.y += self.vy
         self.x += self.vx
+        
 def mouseMove(event):
     global i 
     global j
@@ -113,9 +117,10 @@ def mouseMove(event):
 def mouseClick(event):
     global i
     global j
+    global golfball
     i = event.x
     j = event.y
-    ball(white, 50, i, j)
+    golfball = ball(white, 50, i, j)
 
 
 
