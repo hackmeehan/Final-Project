@@ -112,6 +112,9 @@ class ball(Sprite):
         if self.vy < -.1 and self.vx < -.1:
             self.vx = 0
             self.vy = 0
+        if self.x==130 and self.y==100:
+            self.vx = 5
+        
 def mouseMove(event):
     global i 
     global j
@@ -123,7 +126,7 @@ def mouseClick(event):
     global golfball
     i = event.x
     j = event.y
-    golfball = ball(white, 5, i, j)
+    golfball = ball(white, 5, 130, 400)
 
 
 
