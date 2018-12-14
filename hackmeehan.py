@@ -100,15 +100,17 @@ class ball(Sprite):
     def __init__(self, color, diameter, x, y):
         self.c = color
         self.d = diameter
-        self.vy = 0
+        self.vy = -1
         self.vx = 0
         theball = CircleAsset(self.d, thinline, self.c)
         super().__init__(theball, (x, y))
     def step(self):
-        self.vy += .2
+        self.vy += self.vy*.9
         self.y += self.vy
         self.x += self.vx
-        
+    if self.vy < .1:
+        self.vx = 0
+        self.vy = 0
 def mouseMove(event):
     global i 
     global j
