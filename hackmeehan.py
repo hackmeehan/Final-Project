@@ -100,7 +100,7 @@ class ball(Sprite):
     def __init__(self, color, diameter, x, y):
         self.c = color
         self.d = diameter
-        self.vy = -5
+        self.vy = -3.7
         self.vx = 0
         theball = CircleAsset(self.d, thinline, self.c)
         super().__init__(theball, (x, y))
@@ -109,11 +109,9 @@ class ball(Sprite):
         self.vx *= 0.99
         self.y += self.vy
         self.x += self.vx
-        if self.vy < -.1 and self.vx < -.1:
+        if self.vy < 2 and self.vx < -2:
             self.vx = 0
             self.vy = 0
-        if self.x==130 and self.y==100:
-            self.vx = 5
         
 def mouseMove(event):
     global i 
