@@ -75,7 +75,7 @@ for i in range(1):
     wall17sprite = Sprite(wall17, (715, 70))
     
     water = EllipseAsset(40, 80, waterline, watercolor)
-    watersprite = Sprite(water, (800, 300))
+    watersprite = Sprite(water, (810, 270))
     hole = CircleAsset(10, thinline, black)
     holesprite = Sprite(hole, (800, 105))
 
@@ -93,7 +93,7 @@ class ball(Sprite):
         global myapp
         self.c = color
         self.d = diameter
-        self.vy = -3.7
+        self.vy = 0
         self.vx = 0
         theball = CircleAsset(self.d, thinline, self.c)
         myapp.listenKeyEvent('keydown', 'space', self.spaceKey)
@@ -118,7 +118,7 @@ class ball(Sprite):
             self.y = self.y + (-.5*unitvectoryhole)
             self.vx = 0
             self.vy = 0
-            #print('Score: ', len(scorecounter)+1)
+            print('Score: ', len(scorecounter))
         collidinglistwater = self.collidingWith(watersprite)
         if collidinglistwater:
             self.vy *= 0.9
@@ -196,7 +196,7 @@ def mouseClick(event):
     global golfball
     i = event.x
     j = event.y
-    golfball = ball(white, 5, 130, 400)
+    golfball = ball(white, 5, 125, 387)
 
 
 myapp = minigolf()
