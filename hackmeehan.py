@@ -51,16 +51,15 @@ for i in range(1):
     startlineblue = RectangleAsset(100, 2, blueline, blue)
     Sprite(startlineblue, (80, 380))
     
-    wall1 = RectangleAsset(10, 200, thinline, brown)
-    Sprite(wall1, (80, 200))
+    wall1 = RectangleAsset(10, 300, thinline, brown)
+    Sprite(wall1, (80, 100))
     wall2 = RectangleAsset(10, 200, thinline, brown)
     Sprite(wall2, (170, 200))
-    wall3 = PolygonAsset([(60, 200), (180, 100), (190, 100), (70, 200)], thinline, brown)
-    Sprite(wall3, (78, 100))
-    wall4 = PolygonAsset([(60, 200), (180, 150), (190, 150), (70, 200)], thinline, brown)
-    Sprite(wall4, (168, 150))
-    wall5 = RectangleAsset(200, 12, thinline, brown)
-    Sprite(wall5, (192, 100))
+    wall4 = RectangleAsset(120, 10, thinline, brown)
+    Sprite(wall4, (170, 200))
+    
+    wall5 = RectangleAsset(310, 12, thinline, brown)
+    Sprite(wall5, (80, 100))
     wall6 = RectangleAsset(10, 300, thinline, brown)
     Sprite(wall6, (390, 100))
     wall7 = RectangleAsset(10, 300, thinline, brown)
@@ -81,7 +80,7 @@ for i in range(1):
     Sprite(wall13, (665, 450))
     wall14 = RectangleAsset(10, 325, thinline, brown)
     Sprite(wall14, (915, 130))
-    wall15 = PolygonAsset([(0, 0), (10, 0), (90, 60), (80, 60)], thinline, brown)
+    wall15 = PolygonAsset([(0, 0), (10, 0), (90, 60), (80, 60)], thinline, blue)
     Sprite(wall15, (835, 70))
     wall16 = RectangleAsset(140, 10, thinline, brown)
     Sprite(wall16, (715, 70))
@@ -131,7 +130,7 @@ class ball(Sprite):
             self.y = self.y + (-.5*unitvectoryhole)
             self.vx = 0
             self.vy = 0
-            print('Score: '+(len(scorecounter)+1))
+            #print('Score: '+(len(scorecounter)+1))
         collidinglistwater = self.collidingWith(watersprite)
         if collidinglistwater:
             self.vy *= 0.9
@@ -159,7 +158,6 @@ class ball(Sprite):
             self.vy = 5*(unitvectory)
     
 
-    
 def mouseMove(event):
     global i 
     global j
