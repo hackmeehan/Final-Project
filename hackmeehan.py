@@ -1,4 +1,8 @@
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
+from math import sqrt
+
+print('To start, click the mouse.')
+print('Then use the space bar to make a stroke.')
 
 for i in range(1):
     treegreen = Color(0x458B00, 1.0)
@@ -83,10 +87,9 @@ for i in range(1):
     Sprite(wall16, (715, 70))
     
     water = EllipseAsset(70, 120, waterline, watercolor)
-    Sprite(water, (750, 160))
-    
+    watersprite = Sprite(water, (750, 160))
     hole = CircleAsset(10, thinline, black)
-    Sprite(hole, (800, 105))
+    holesprite = Sprite(hole, (800, 105))
 
 golfball = None
 
@@ -98,21 +101,57 @@ class minigolf(App):
 
 class ball(Sprite):
     def __init__(self, color, diameter, x, y):
+        global myapp
         self.c = color
         self.d = diameter
         self.vy = -3.7
         self.vx = 0
         theball = CircleAsset(self.d, thinline, self.c)
+        myapp.listenKeyEvent('keydown', 'space', self.spaceKey)
         super().__init__(theball, (x, y))
     def step(self):
         self.vy *= 0.99
         self.vx *= 0.99
         self.y += self.vy
         self.x += self.vx
-        if self.vy < 2 and self.vx < -2:
+        if sqrt((self.vy**2)+(self.vx**2)) < 1:
+            self.vy = 0
+            self.vx = 0
+        collidinglisthole = self.collidingWith(holesprite)
+        if collidinglisthole:
             self.vx = 0
             self.vy = 0
+        collidinglistwater = self.collidingWith(watersprite)
+        if collidinglistwater:
+            self.vy *= 0.9
+            self.vx *= 0.9
+            self.y += self.vy
+            self.x += self.vx
+            if sqrt((self.vy**2)+(self.vx**2)) < 1:
+                self.vy = 0
+                self.vx = 0
+    def spaceKey(self, event):
+        global i
+        global j
+        #i = event.x
+        #j = event.y
+        xcoorball = self.x
+        ycoorball = self.y
+        vectorx = i-xcoorball
+        vectory = j-ycoorball
+        unitvectorx = vectorx
+        #(sqrt((vectory**2)+(vectorx**2)))
+        unitvectory = vectory
+        #(sqrt((vectory**2)+(vectorx**2)))
+        if self.vx == 0 and self.vy == 0: 
+            self.vx = .02*(unitvectorx)
+            self.vy = .02*(unitvectory)
+    
         
+
+
+        
+    
 def mouseMove(event):
     global i 
     global j
@@ -125,7 +164,6 @@ def mouseClick(event):
     i = event.x
     j = event.y
     golfball = ball(white, 5, 130, 400)
-
 
 
 myapp = minigolf()
