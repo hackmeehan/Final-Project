@@ -123,8 +123,21 @@ class ball(Sprite):
         if collidinglisthole:
             self.vx = 0
             self.vy = 0
-            global scorecounter
-            print('Score: '+(len(scorecounter)+1))
+            global i
+            global j
+            #i = event.x
+            #j = event.y
+            xcoorballhole = self.x
+            ycoorballhole = self.y
+            vectorxhole = xcoorballhole-815
+            vectoryhole = ycoorballhole-115
+            unitvectorxhole = vectorxhole/(sqrt((vectoryhole**2)+(vectorxhole**2)))
+            unitvectoryhole = vectoryhole/(sqrt((vectoryhole**2)+(vectorxhole**2)))
+            self.x = self.x + (-7*unitvectorxhole)
+            self.y = self.y + (-7*unitvectoryhole)
+            self.vx = 0
+            self.vy = 0
+            #print('Score: '+(len(scorecounter)+1))
         collidinglistwater = self.collidingWith(watersprite)
         if collidinglistwater:
             self.vy *= 0.9
@@ -134,6 +147,7 @@ class ball(Sprite):
             if sqrt((self.vy**2)+(self.vx**2)) < 1:
                 self.vy = 0
                 self.vx = 0
+                
     def spaceKey(self, event):
         global i
         global j
