@@ -2,7 +2,7 @@ from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, El
 from math import sqrt
 
 print('To start, click the mouse.')
-print('Then use the space bar to make a stroke.')
+print('Then use the space bar to make a stroke, using the mouse to aim.')
 
 for i in range(1):
     treegreen = Color(0x458B00, 1.0)
@@ -43,10 +43,12 @@ for i in range(1):
     Sprite(floor6, (670, 380))
     floor7 = RectangleAsset(200, 300, greenline, darkgreen)
     Sprite(floor7, (722, 80))
-    floorpatch3 = PolygonAsset([(0, 0), (90, 0), (90, 70)], treegreenline, treegreen)
-    Sprite(floorpatch3, (840, 70)) 
+    floorpatch3 = PolygonAsset([(0, 0), (90, 0), (90, 70), (0, 70)], treegreenline, treegreen)
+    Sprite(floorpatch3, (860, 58)) 
     floor8 = PolygonAsset([(0, 80), (200, 0), (200, 70), (0, 145)], greenline, darkgreen)
-    Sprite(floor8, (470, 380)) 
+    Sprite(floor8, (470, 380))
+    floor9 = RectangleAsset(220, 90, greenline, darkgreen)
+    Sprite(floor9, (90, 110))
     
     startlineblue = RectangleAsset(100, 2, blueline, blue)
     Sprite(startlineblue, (80, 380))
@@ -80,10 +82,14 @@ for i in range(1):
     Sprite(wall13, (665, 450))
     wall14 = RectangleAsset(10, 325, thinline, brown)
     Sprite(wall14, (915, 130))
-    wall15 = PolygonAsset([(0, 0), (10, 0), (90, 60), (80, 60)], thinline, blue)
-    Sprite(wall15, (835, 70))
-    wall16 = RectangleAsset(140, 10, thinline, brown)
-    Sprite(wall16, (715, 70))
+    
+    wall15 = RectangleAsset(70, 10, thinline, brown)
+    Sprite(wall15, (855, 120))
+    wall16 = RectangleAsset(10, 60, thinline, brown)
+    Sprite(wall16, (855, 70))
+    
+    wall17 = RectangleAsset(140, 10, thinline, brown)
+    Sprite(wall17, (715, 70))
     
     water = EllipseAsset(70, 120, waterline, watercolor)
     watersprite = Sprite(water, (750, 160))
@@ -95,7 +101,6 @@ scorecounter = []
 golfball = None
 
 class minigolf(App):
-    
     def step(self):
         if golfball:
             golfball.step()
@@ -130,14 +135,14 @@ class ball(Sprite):
             self.y = self.y + (-.5*unitvectoryhole)
             self.vx = 0
             self.vy = 0
-            #print('Score: '+(len(scorecounter)+1))
+            #print('Score: ', len(scorecounter)+1)
         collidinglistwater = self.collidingWith(watersprite)
         if collidinglistwater:
             self.vy *= 0.9
             self.vx *= 0.9
             self.y += self.vy
             self.x += self.vx
-            if sqrt((self.vy**2)+(self.vx**2)) < 1:
+            if sqrt((self.vy**2)+(self.vx**2)) < 1.5:
                 self.vy = 0
                 self.vx = 0
                 
