@@ -91,6 +91,8 @@ for i in range(1):
     hole = CircleAsset(10, thinline, black)
     holesprite = Sprite(hole, (800, 105))
 
+scorecounter = []
+
 golfball = None
 
 class minigolf(App):
@@ -121,6 +123,8 @@ class ball(Sprite):
         if collidinglisthole:
             self.vx = 0
             self.vy = 0
+            global scorecounter
+            print('Score: '+(len(scorecounter)+1))
         collidinglistwater = self.collidingWith(watersprite)
         if collidinglistwater:
             self.vy *= 0.9
@@ -139,15 +143,13 @@ class ball(Sprite):
         ycoorball = self.y
         vectorx = i-xcoorball
         vectory = j-ycoorball
-        unitvectorx = vectorx
-        #(sqrt((vectory**2)+(vectorx**2)))
-        unitvectory = vectory
-        #(sqrt((vectory**2)+(vectorx**2)))
+        unitvectorx = vectorx/(sqrt((vectory**2)+(vectorx**2)))
+        unitvectory = vectory/(sqrt((vectory**2)+(vectorx**2)))
+        scorecounter.append('point')
         if self.vx == 0 and self.vy == 0: 
-            self.vx = .02*(unitvectorx)
-            self.vy = .02*(unitvectory)
+            self.vx = 5*(unitvectorx)
+            self.vy = 5*(unitvectory)
     
-        
 
 
         
