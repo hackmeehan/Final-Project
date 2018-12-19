@@ -121,23 +121,17 @@ class ball(Sprite):
             self.vx = 0
         collidinglisthole = self.collidingWith(holesprite)
         if collidinglisthole:
-            self.vx = 0
-            self.vy = 0
-            global i
-            global j
-            #i = event.x
-            #j = event.y
             xcoorballhole = self.x
             ycoorballhole = self.y
-            vectorxhole = xcoorballhole-815
-            vectoryhole = ycoorballhole-115
+            vectorxhole = xcoorballhole-805
+            vectoryhole = ycoorballhole-110
             unitvectorxhole = vectorxhole/(sqrt((vectoryhole**2)+(vectorxhole**2)))
             unitvectoryhole = vectoryhole/(sqrt((vectoryhole**2)+(vectorxhole**2)))
-            self.x = self.x + (-7*unitvectorxhole)
-            self.y = self.y + (-7*unitvectoryhole)
+            self.x = self.x + (-.5*unitvectorxhole)
+            self.y = self.y + (-.5*unitvectoryhole)
             self.vx = 0
             self.vy = 0
-            #print('Score: '+(len(scorecounter)+1))
+            print('Score: '+(len(scorecounter)+1))
         collidinglistwater = self.collidingWith(watersprite)
         if collidinglistwater:
             self.vy *= 0.9
@@ -159,14 +153,12 @@ class ball(Sprite):
         vectory = j-ycoorball
         unitvectorx = vectorx/(sqrt((vectory**2)+(vectorx**2)))
         unitvectory = vectory/(sqrt((vectory**2)+(vectorx**2)))
-        scorecounter.append('point')
+        scorecounter.append('stroke')
         if self.vx == 0 and self.vy == 0: 
             self.vx = 5*(unitvectorx)
             self.vy = 5*(unitvectory)
     
 
-
-        
     
 def mouseMove(event):
     global i 
