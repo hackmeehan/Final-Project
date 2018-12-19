@@ -74,8 +74,8 @@ for i in range(1):
     wall17 = RectangleAsset(140, 10, thinline, brown)
     wall17sprite = Sprite(wall17, (715, 70))
     
-    water = EllipseAsset(70, 120, waterline, watercolor)
-    watersprite = Sprite(water, (750, 160))
+    water = EllipseAsset(40, 80, waterline, watercolor)
+    watersprite = Sprite(water, (800, 300))
     hole = CircleAsset(10, thinline, black)
     holesprite = Sprite(hole, (800, 105))
 
@@ -129,49 +129,46 @@ class ball(Sprite):
                 self.vy = 0
                 self.vx = 0
                 
-        collidinglistwall1 = self.collidinWith(wall1sprite)
+        collidinglistwall1 = self.collidingWith(wall1sprite)
         if collidinglistwall1:
-            pass
-        collidinglistwall2 = self.collidinWith(wall2sprite)
+            self.vx = self.vx*-1
+        collidinglistwall2 = self.collidingWith(wall2sprite)
         if collidinglistwall2:
-            pass
-        collidinglistwall4 = self.collidinWith(wall4sprite)
+            self.vx = self.vx*-1
+        collidinglistwall4 = self.collidingWith(wall4sprite)
         if collidinglistwall4:
-            pass
-        collidinglistwall5 = self.collidinWith(wall5sprite)
+            self.vy = self.vy*-1
+        collidinglistwall5 = self.collidingWith(wall5sprite)
         if collidinglistwall5:
-            pass
-        collidinglistwall6 = self.collidinWith(wall6sprite)
+            self.vy = self.vy*-1
+        collidinglistwall6 = self.collidingWith(wall6sprite)
         if collidinglistwall6:
-            pass
-        collidinglistwall7 = self.collidinWith(wall7sprite)
+            self.vx = self.vx*-1
+        collidinglistwall7 = self.collidingWith(wall7sprite)
         if collidinglistwall7:
-            pass  
-        collidinglistwall11 = self.collidinWith(wall11sprite)
+            self.vx = self.vx*-1  
+        collidinglistwall11 = self.collidingWith(wall11sprite)
         if collidinglistwall11:
-            pass
-        collidinglistwall12 = self.collidinWith(wall12sprite)
+            self.vy = self.vy*-1
+        collidinglistwall12 = self.collidingWith(wall12sprite)
         if collidinglistwall12:
-            pass
-        collidinglistwall13 = self.collidinWith(wall13sprite)
+            self.vx = self.vx*-1
+        collidinglistwall13 = self.collidingWith(wall13sprite)
         if collidinglistwall13:
-            pass
-        collidinglistwall13 = self.collidinWith(wall13sprite)
-        if collidinglistwall13:
-            pass
-        collidinglistwall14 = self.collidinWith(wall14sprite)
+            self.vy = self.vy*-1
+        collidinglistwall14 = self.collidingWith(wall14sprite)
         if collidinglistwall14:
-            pass
-        collidinglistwall15 = self.collidinWith(wall15sprite)
+            self.vx = self.vx*-1
+        collidinglistwall15 = self.collidingWith(wall15sprite)
         if collidinglistwall15:
-            pass
-        collidinglistwall16 = self.collidinWith(wall16sprite)
+            self.vy = self.vy*-1
+        collidinglistwall16 = self.collidingWith(wall16sprite)
         if collidinglistwall16:
-            pass
-        collidinglistwall17 = self.collidinWith(wall17sprite)
-        if collidinglistwall117:
-            pass
-                
+            self.vx = self.vx*-1
+        collidinglistwall17 = self.collidingWith(wall17sprite)
+        if collidinglistwall17:
+            self.vy = self.vy*-1
+
     def spaceKey(self, event):
         global i
         global j
@@ -188,7 +185,6 @@ class ball(Sprite):
             self.vx = 5*(unitvectorx)
             self.vy = 5*(unitvectory)
     
-
 def mouseMove(event):
     global i 
     global j
