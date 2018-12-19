@@ -35,18 +35,12 @@ for i in range(1):
     Sprite(floorpatch, (290, 140))
     floor4 = EllipseAsset(80, 40, greenline, darkgreen)
     Sprite(floor4, (50, 360))
-    floor5 = PolygonAsset([(0, 0), (150, 0), (240, 53), (164, 85)], greenline, darkgreen)
-    Sprite(floor5, (298, 445)) 
-    floorpatch2 = PolygonAsset([(0, 0), (98, 70), (0, 70)], greenline, darkgreen)
-    Sprite(floorpatch2, (388, 400)) 
-    floor6 = RectangleAsset(250, 68, greenline, darkgreen)
-    Sprite(floor6, (670, 380))
+    floor6 = RectangleAsset(620, 75, greenline, darkgreen)
+    Sprite(floor6, (300, 380))
     floor7 = RectangleAsset(200, 300, greenline, darkgreen)
     Sprite(floor7, (722, 80))
     floorpatch3 = PolygonAsset([(0, 0), (90, 0), (90, 70), (0, 70)], treegreenline, treegreen)
     Sprite(floorpatch3, (860, 58)) 
-    floor8 = PolygonAsset([(0, 80), (200, 0), (200, 70), (0, 145)], greenline, darkgreen)
-    Sprite(floor8, (470, 380))
     floor9 = RectangleAsset(220, 90, greenline, darkgreen)
     Sprite(floor9, (90, 110))
     
@@ -54,42 +48,31 @@ for i in range(1):
     Sprite(startlineblue, (80, 380))
     
     wall1 = RectangleAsset(10, 300, thinline, brown)
-    Sprite(wall1, (80, 100))
+    wall1sprite = Sprite(wall1, (80, 100))
     wall2 = RectangleAsset(10, 200, thinline, brown)
-    Sprite(wall2, (170, 200))
+    wall2sprite = Sprite(wall2, (170, 200))
     wall4 = RectangleAsset(120, 10, thinline, brown)
-    Sprite(wall4, (170, 200))
-    
+    wall4sprite = Sprite(wall4, (170, 200))
     wall5 = RectangleAsset(310, 12, thinline, brown)
-    Sprite(wall5, (80, 100))
+    wall5sprite = Sprite(wall5, (80, 100))
     wall6 = RectangleAsset(10, 300, thinline, brown)
-    Sprite(wall6, (390, 100))
+    wall6sprite = Sprite(wall6, (390, 100))
     wall7 = RectangleAsset(10, 300, thinline, brown)
-    Sprite(wall7, (290, 150))
-    wall8 = PolygonAsset([(0, 0), (10, 0), (180, 80), (170, 80)], thinline, brown)
-    Sprite(wall8, (288, 448))
-    wall8 = PolygonAsset([(360, 0), (380, 0), (180, 80), (160, 80)], thinline, brown)
-    Sprite(wall8, (460, 449))
-    wall9 = PolygonAsset([(0, 0), (10, 0), (90, 60), (80, 60)], thinline, brown)
-    Sprite(wall9, (388, 397))
-    wall10 = PolygonAsset([(360, 0), (380, 0), (180, 80), (160, 80)], thinline, brown)
-    Sprite(wall10, (468, 377))
-    wall11 = RectangleAsset(50, 10, thinline, brown)
-    Sprite(wall11, (665, 370))
+    wall7sprite = Sprite(wall7, (290, 150))
+    wall11 = RectangleAsset(325, 10, thinline, brown)
+    wall11sprite =  Sprite(wall11, (400, 370))
     wall12 = RectangleAsset(10, 300, thinline, brown)
-    Sprite(wall12, (715, 80))
-    wall13 = RectangleAsset(250, 6, thinline, brown)
-    Sprite(wall13, (665, 450))
+    wall12sprite = Sprite(wall12, (715, 80))
+    wall13 = RectangleAsset(625, 10, thinline, brown)
+    wall13sprite = Sprite(wall13, (290, 450))
     wall14 = RectangleAsset(10, 325, thinline, brown)
-    Sprite(wall14, (915, 130))
-    
+    wall14sprite = Sprite(wall14, (915, 130))
     wall15 = RectangleAsset(70, 10, thinline, brown)
-    Sprite(wall15, (855, 120))
+    wall15sprite = Sprite(wall15, (855, 120))
     wall16 = RectangleAsset(10, 60, thinline, brown)
-    Sprite(wall16, (855, 70))
-    
+    wall16sprite = Sprite(wall16, (855, 70))
     wall17 = RectangleAsset(140, 10, thinline, brown)
-    Sprite(wall17, (715, 70))
+    wall17sprite = Sprite(wall17, (715, 70))
     
     water = EllipseAsset(70, 120, waterline, watercolor)
     watersprite = Sprite(water, (750, 160))
@@ -145,6 +128,49 @@ class ball(Sprite):
             if sqrt((self.vy**2)+(self.vx**2)) < 1.5:
                 self.vy = 0
                 self.vx = 0
+                
+        collidinglistwall1 = self.collidinWith(wall1sprite)
+        if collidinglistwall1:
+            pass
+        collidinglistwall2 = self.collidinWith(wall2sprite)
+        if collidinglistwall2:
+            pass
+        collidinglistwall4 = self.collidinWith(wall4sprite)
+        if collidinglistwall4:
+            pass
+        collidinglistwall5 = self.collidinWith(wall5sprite)
+        if collidinglistwall5:
+            pass
+        collidinglistwall6 = self.collidinWith(wall6sprite)
+        if collidinglistwall6:
+            pass
+        collidinglistwall7 = self.collidinWith(wall7sprite)
+        if collidinglistwall7:
+            pass  
+        collidinglistwall11 = self.collidinWith(wall11sprite)
+        if collidinglistwall11:
+            pass
+        collidinglistwall12 = self.collidinWith(wall12sprite)
+        if collidinglistwall12:
+            pass
+        collidinglistwall13 = self.collidinWith(wall13sprite)
+        if collidinglistwall13:
+            pass
+        collidinglistwall13 = self.collidinWith(wall13sprite)
+        if collidinglistwall13:
+            pass
+        collidinglistwall14 = self.collidinWith(wall14sprite)
+        if collidinglistwall14:
+            pass
+        collidinglistwall15 = self.collidinWith(wall15sprite)
+        if collidinglistwall15:
+            pass
+        collidinglistwall16 = self.collidinWith(wall16sprite)
+        if collidinglistwall16:
+            pass
+        collidinglistwall17 = self.collidinWith(wall17sprite)
+        if collidinglistwall117:
+            pass
                 
     def spaceKey(self, event):
         global i
