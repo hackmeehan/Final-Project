@@ -1,5 +1,10 @@
-from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
+from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, TextAsset
 from math import sqrt
+
+ta = TextAsset("Sample Text", 
+    style="bold 40pt Arial", 
+    width=250, 
+    fill=Color(0x1122ff, 1.0))
 
 print('To start, click the mouse.')
 print('Then use the space bar to make a stroke, using the mouse to aim.')
@@ -178,12 +183,14 @@ class ball(Sprite):
         ycoorball = self.y
         vectorx = i-xcoorball
         vectory = j-ycoorball
-        unitvectorx = vectorx/(sqrt((vectory**2)+(vectorx**2)))
-        unitvectory = vectory/(sqrt((vectory**2)+(vectorx**2)))
+        unitvectorx = vectorx
+        #/(sqrt((vectory**2)+(vectorx**2)))
+        unitvectory = vectory
+        #/(sqrt((vectory**2)+(vectorx**2)))
         scorecounter.append('stroke')
         if self.vx == 0 and self.vy == 0: 
-            self.vx = 5*(unitvectorx)
-            self.vy = 5*(unitvectory)
+            self.vx = .03*(unitvectorx)
+            self.vy = .03*(unitvectory)
     
 def mouseMove(event):
     global i 
@@ -198,6 +205,8 @@ def mouseClick(event):
     j = event.y
     golfball = ball(white, 5, 125, 387)
 
+
+#ta = TextAsset("Sample Text", style="bold 40pt Arial", width=250)
 
 myapp = minigolf()
 myapp.listenMouseEvent('click', mouseClick)
