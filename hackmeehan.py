@@ -118,8 +118,8 @@ class ball(Sprite):
             self.y = self.y + (-.5*unitvectoryhole)
             self.vx = 0
             self.vy = 0
-            scoreboard = TextAsset(len(scorecounter), style="bold 15pt Arial", width=250)
-            Sprite(scoreboard, (806, 82))
+            scoreboard = TextAsset("Score: "+str(len(scorecounter)), style="bold 15pt Arial", width=250)
+            Sprite(scoreboard, (760, 82))
         collidinglistwater = self.collidingWith(watersprite)
         if collidinglistwater:
             self.vy *= 0.9
