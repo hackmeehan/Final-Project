@@ -65,7 +65,7 @@ for i in range(1):
     wall12sprite = Sprite(wall12, (715, 80))
     wall13 = RectangleAsset(625, 10, thinline, brown)
     wall13sprite = Sprite(wall13, (290, 450))
-    wall14 = RectangleAsset(10, 325, thinline, brown)
+    wall14 = RectangleAsset(10, 330, thinline, brown)
     wall14sprite = Sprite(wall14, (915, 130))
     wall15 = RectangleAsset(70, 10, thinline, brown)
     wall15sprite = Sprite(wall15, (855, 120))
@@ -173,8 +173,6 @@ class ball(Sprite):
     def spaceKey(self, event):
         global i
         global j
-        #i = event.x
-        #j = event.y
         xcoorball = self.x
         ycoorball = self.y
         vectorx = i-xcoorball
@@ -198,9 +196,6 @@ def mouseClick(event):
     i = event.x
     j = event.y
     golfball = ball(white, 5, 125, 387)
-
-
-ta = TextAsset("Sample Text", style="bold 40pt Arial", width=250)
 
 myapp = minigolf()
 myapp.listenMouseEvent('click', mouseClick)
