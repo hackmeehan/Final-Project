@@ -80,7 +80,6 @@ for i in range(1):
     holesprite = Sprite(hole, (800, 105))
 
 scorecounter = []
-
 golfball = None
 
 class minigolf(App):
